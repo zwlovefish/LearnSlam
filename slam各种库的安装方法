@@ -1,0 +1,42 @@
+安装和配置git
+sudo apt-get install git
+git config --global user.name "周健伟"
+git config --global user.email "1149610059@qq.com"
+ssh-keygen -C 'you email address@gmail.com' -t rsa
+cd ~/.ssh
+vim id_rsa.pub将里面所有的内容复制粘贴到github.com的网站中
+
+上传到远程仓库
+git init
+git add ./要上传的文件夹
+git commit -m "注释"
+git remote add origin 地址
+git push -u origin 分支名
+如果出现 ! [rejected]        master -> master (fetch first)
+git pull 保存文件即可
+1.安装Eigen
+sudo apt-get install libeigen3-dev
+sudo updatedb
+编译时需要在CMakeLists.txt中加include_directories("/usr/include/eigen3")
+
+2.安装Sophus
+Sophus库只需编译即可
+
+3.安装OpenCV 3.1.0
+安装依赖项
+sudo apt-get install build-essential libgtk2.0-dev libvtk5-dev libjpeg-dev libtiff5-dev libjasper-dev libopenexr-dev libtbb-dev
+编译OpenCV源码
+mkdir build
+cd build
+cmake ..
+编译
+make -j4
+编译完成之后别忘了安装
+sudo make install
+
+4.点云
+sudo apt-get install libpcl-deb pcl-tools
+
+5.安装ceres库
+安装依赖项：sudo apt-get install liblapack-dev libsuitesparse-dev libcxsparse3.1.4 libgflags-dev libgoogle-glog-dev libgtest-dev
+编译安装 友情提示用sudo
